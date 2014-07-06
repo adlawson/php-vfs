@@ -6,7 +6,7 @@
 **Requires:** `PHP >= 5.4 || HHVM >= 3.0`
 
 **VFS** is a virtual file system for PHP built using the stream wrapper API.
-Steams are exposed just as typical `file://` or `http://` streams are to PHP's
+Streams are exposed just as typical `file://` or `http://` streams are to PHP's
 built-in functions and keywords like `fopen` and `require`. This implementation
 attempts to stay true to the typical streams, including triggering warnings
 and handling edge cases appropriately.
