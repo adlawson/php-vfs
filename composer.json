@@ -26,9 +26,9 @@
             "Vfs\\": "src/"
         }
     },
-    "autoload": {
+    "autoload-dev": {
         "psr-4": {
-            "Vfs\\Test": "test/src/"
+            "Vfs\\Test\\": "test/src/"
         }
     },
     "require": {
