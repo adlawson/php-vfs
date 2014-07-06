@@ -1,0 +1,31 @@
+<phpunit bootstrap="./vendor/autoload.php"
+         colors="true"
+         stopOnError="true"
+         stopOnFailure="true">
+
+    <!-- Test suites -->
+    <testsuites>
+        <!-- <testsuite name="acceptance">
+            <directory suffix="AcceptanceTest.php">test/acceptance</directory>
+        </testsuite> -->
+        <testsuite name="functional">
+            <directory suffix="FunctionalTest.php">test/functional</directory>
+        </testsuite>
+        <testsuite name="unit">
+            <directory suffix="Test.php">test/unit</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Coverage filter -->
+    <filter>
+        <whitelist>
+            <directory>src</directory>
+        </whitelist>
+    </filter>
+
+    <!-- Listeners -->
+    <listeners>
+        <listener class="Mockery\Adapter\Phpunit\TestListener"/>
+    </listeners>
+
+</phpunit>
