@@ -25,7 +25,7 @@ class File implements FileInterface
     public function __construct($content = '')
     {
         $this->content = (string) $content;
-        $this->mode = self::TYPE_BLOCK | self::TYPE_FILE;
+        $this->mode = self::TYPE_BLOCK & self::TYPE_FILE;
 
         $this->dateAccessed = new DateTime();
         $this->dateCreated  = new DateTime();

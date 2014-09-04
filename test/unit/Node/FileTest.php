@@ -61,7 +61,7 @@ class FileTest extends UnitTestCase
     {
         $file = new File();
 
-        $this->assertEquals(0170000 | 0100000, $file->getMode());
+        $this->assertEquals(0170000 & 0100000, $file->getMode());
     }
 
     public function testGetSize()
