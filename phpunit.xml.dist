@@ -5,9 +5,9 @@
 
     <!-- Test suites -->
     <testsuites>
-        <!-- <testsuite name="acceptance">
+        <testsuite name="acceptance">
             <directory suffix="AcceptanceTest.php">test/acceptance</directory>
-        </testsuite> -->
+        </testsuite>
         <testsuite name="functional">
             <directory suffix="FunctionalTest.php">test/functional</directory>
         </testsuite>
