@@ -25,12 +25,12 @@ class FileSystem implements FileSystemInterface
     protected $wrapperClass;
 
     /**
-     * @param string $scheme
-     * @param string $wrapperClass
+     * @param string               $scheme
+     * @param string               $wrapperClass
      * @param NodeFactoryInterface $factory
-     * @param NodeWalkerInterface $walker
-     * @param RegistryInterface $registry
-     * @param LoggerInterface $logger
+     * @param NodeWalkerInterface  $walker
+     * @param RegistryInterface    $registry
+     * @param LoggerInterface      $logger
      */
     public function __construct(
         $scheme,
@@ -51,7 +51,7 @@ class FileSystem implements FileSystemInterface
     }
 
     /**
-     * @param string $scheme
+     * @param  string     $scheme
      * @return FileSystem
      */
     public static function factory($scheme = self::SCHEME)
@@ -115,6 +115,7 @@ class FileSystem implements FileSystemInterface
 
         if (stream_wrapper_register($this->scheme, $this->wrapperClass)) {
             $this->registry->add($this->scheme, $this);
+
             return true;
         }
 
@@ -132,6 +133,7 @@ class FileSystem implements FileSystemInterface
 
         if (stream_wrapper_unregister($this->scheme)) {
             $this->registry->remove($this->scheme, $this);
+
             return true;
         }
 
@@ -139,7 +141,7 @@ class FileSystem implements FileSystemInterface
     }
 
     /**
-     * @param string $scheme
+     * @param  string $scheme
      * @return string
      */
     protected function formatScheme($scheme)

@@ -19,10 +19,10 @@ class MissingNodeException extends OutOfRangeException implements ExceptionInter
     protected $name;
 
     /**
-     * @param string $name
+     * @param string                 $name
      * @param NodeContainerInterface $container
-     * @param integer $code
-     * @param Exception $previous
+     * @param integer                $code
+     * @param Exception              $previous
      */
     public function __construct($name, NodeContainerInterface $container, $code = 0, Exception $previous = null)
     {

@@ -9,7 +9,6 @@
  */
 namespace Vfs\Node\Walker;
 
-use Vfs\Exception\InvalidNodeTypeException;
 use Vfs\Node\NodeContainerInterface;
 use Vfs\Node\NodeInterface;
 
@@ -26,8 +25,8 @@ class NodeWalker implements NodeWalkerInterface
     }
 
     /**
-     * @param NodeInterface $root
-     * @param string $path
+     * @param  NodeInterface $root
+     * @param  string        $path
      * @return NodeInterface
      */
     public function findNode(NodeInterface $root, $path)
@@ -45,9 +44,9 @@ class NodeWalker implements NodeWalkerInterface
     }
 
     /**
-     * @param NodeInterface $root
-     * @param string $path
-     * @param callable $fn
+     * @param  NodeInterface $root
+     * @param  string        $path
+     * @param  callable      $fn
      * @return NodeInterface
      */
     public function walkPath(NodeInterface $root, $path, callable $fn)
@@ -65,7 +64,7 @@ class NodeWalker implements NodeWalkerInterface
     }
 
     /**
-     * @param string $path
+     * @param  string   $path
      * @return string[]
      */
     protected function splitPath($path)

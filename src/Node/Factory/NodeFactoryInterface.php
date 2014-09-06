@@ -15,19 +15,19 @@ use Vfs\Node\NodeInterface;
 interface NodeFactoryInterface
 {
     /**
-     * @param NodeInterface[] $children
+     * @param  NodeInterface[]        $children
      * @return NodeContainerInterface
      */
     public function buildDirectory(array $children = []);
 
     /**
-     * @param string $content
+     * @param  string        $content
      * @return NodeInterface
      */
     public function buildFile($content = '');
 
     /**
-     * @param string $content
+     * @param  string        $content
      * @return NodeInterface
      */
     public function buildLink($content = '');

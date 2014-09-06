@@ -30,8 +30,8 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
-     * @param integer $options
+     * @param  string  $url
+     * @param  integer $options
      * @return boolean
      */
     public function dir_opendir($url, $options)
@@ -60,9 +60,9 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
-     * @param integer $perms
-     * @param integer $flags
+     * @param  string  $url
+     * @param  integer $perms
+     * @param  integer $flags
      * @return boolean
      */
     public function mkdir($url, $perms, $flags)
@@ -74,8 +74,8 @@ class StreamWrapper
     }
 
     /**
-     * @param string $origin
-     * @param string $target
+     * @param  string  $origin
+     * @param  string  $target
      * @return boolean
      */
     public function rename($origin, $target)
@@ -86,8 +86,8 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
-     * @param integer $options
+     * @param  string  $url
+     * @param  integer $options
      * @return boolean
      */
     public function rmdir($url, $options)
@@ -98,7 +98,7 @@ class StreamWrapper
     }
 
     /**
-     * @param integer $cast
+     * @param  integer          $cast
      * @return resource|boolean
      */
     public function stream_cast($cast)
@@ -133,10 +133,10 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
-     * @param string $mode
-     * @param integer $options
-     * @param string $openedPath
+     * @param  string  $url
+     * @param  string  $mode
+     * @param  integer $options
+     * @param  string  $openedPath
      * @return boolean
      */
     public function stream_open($url, $mode, $options, &$openedPath)
@@ -157,7 +157,7 @@ class StreamWrapper
     }
 
     /**
-     * @param integer $length
+     * @param  integer        $length
      * @return string|boolean
      */
     public function stream_read($length)
@@ -173,8 +173,8 @@ class StreamWrapper
     }
 
     /**
-     * @param integer $offset
-     * @param integer $whence
+     * @param  integer $offset
+     * @param  integer $whence
      * @return boolean
      */
     public function stream_seek($offset, $whence = SEEK_SET)
@@ -198,9 +198,9 @@ class StreamWrapper
     }
 
     /**
-     * @param integer $option
-     * @param integer $arg1
-     * @param integer $arg2
+     * @param  integer $option
+     * @param  integer $arg1
+     * @param  integer $arg2
      * @return boolean
      */
     public function stream_set_option($option, $arg1, $arg2)
@@ -209,7 +209,7 @@ class StreamWrapper
     }
 
     /**
-     * @param boolean $followLink
+     * @param  boolean       $followLink
      * @return array|boolean
      */
     public function stream_stat($followLink = false)
@@ -250,7 +250,7 @@ class StreamWrapper
     }
 
     /**
-     * @param integer $size
+     * @param  integer $size
      * @return boolean
      */
     public function stream_truncate($size)
@@ -265,7 +265,7 @@ class StreamWrapper
     }
 
     /**
-     * @param string $data
+     * @param  string  $data
      * @return integer
      */
     public function stream_write($data)
@@ -279,7 +279,7 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
+     * @param  string  $url
      * @return boolean
      */
     public function unlink($url)
@@ -290,8 +290,8 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
-     * @param integer $flags
+     * @param  string  $url
+     * @param  integer $flags
      * @return array
      */
     public function url_stat($url, $flags)
@@ -303,7 +303,7 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
+     * @param  string          $url
      * @return DirectoryHandle
      */
     protected function buildDirectoryHandle($url)
@@ -312,8 +312,8 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
-     * @param string $mode
+     * @param  string     $url
+     * @param  string     $mode
      * @return FileHandle
      */
     protected function buildFileHandle($url, $mode = null)
@@ -322,8 +322,8 @@ class StreamWrapper
     }
 
     /**
-     * @param integer $mask
-     * @param integer $bit
+     * @param  integer $mask
+     * @param  integer $bit
      * @return boolean
      */
     protected function checkBit($mask, $bit)
@@ -332,7 +332,7 @@ class StreamWrapper
     }
 
     /**
-     * @param string $url
+     * @param  string              $url
      * @return FileSystemInterface
      */
     protected function getFileSystemForUrl($url)

@@ -15,9 +15,9 @@ use Psr\Log\LogLevel;
 class PhpErrorLogger extends AbstractLogger
 {
     /**
-     * @param mixed $level
+     * @param mixed  $level
      * @param string $message
-     * @param array $context
+     * @param array  $context
      */
     public function log($level, $message, array $context = [])
     {
@@ -40,8 +40,8 @@ class PhpErrorLogger extends AbstractLogger
     }
 
     /**
-     * @param string $message
-     * @param array $context
+     * @param  string $message
+     * @param  array  $context
      * @return string
      */
     protected function format($message, array $context)
@@ -54,7 +54,7 @@ class PhpErrorLogger extends AbstractLogger
     }
 
     /**
-     * @param array $backtrace
+     * @param  array  $backtrace
      * @return string
      */
     protected function formatTrace(array $backtrace)

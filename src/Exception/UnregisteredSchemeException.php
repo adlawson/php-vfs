@@ -17,8 +17,8 @@ class UnregisteredSchemeException extends OutOfRangeException implements Excepti
     protected $scheme;
 
     /**
-     * @param string $scheme
-     * @param integer $code
+     * @param string    $scheme
+     * @param integer   $code
      * @param Exception $previous
      */
     public function __construct($scheme, $code = 0, Exception $previous = null)

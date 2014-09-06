@@ -15,27 +15,27 @@ use Vfs\Exception\UnregisteredSchemeException;
 interface RegistryInterface
 {
     /**
-     * @param string $scheme
-     * @param FileSystemInterface $fs
+     * @param  string                    $scheme
+     * @param  FileSystemInterface       $fs
      * @throws RegisteredSchemeException If a mounted file system exists at scheme
      */
     public function add($scheme, FileSystemInterface $fs);
 
     /**
-     * @param string $scheme
+     * @param  string                      $scheme
      * @return FileSystemInterface
      * @throws UnregisteredSchemeException If a mounted file system doesn't exist at scheme
      */
     public function get($scheme);
 
     /**
-     * @param string $scheme
+     * @param  string  $scheme
      * @return boolean
      */
     public function has($scheme);
 
     /**
-     * @param string $scheme
+     * @param  string                      $scheme
      * @return FileSystemInterface
      * @throws UnregisteredSchemeException If a mounted file system doesn't exist at scheme
      */

@@ -24,8 +24,8 @@ abstract class AbstractHandle implements HandleInterface
 
     /**
      * @param FileSystemInterface $fs
-     * @param string $url
-     * @param string $mode
+     * @param string              $url
+     * @param string              $mode
      */
     public function __construct(FileSystemInterface $fs, $url, $mode = null)
     {
@@ -45,8 +45,8 @@ abstract class AbstractHandle implements HandleInterface
     }
 
     /**
-     * @param string $origin
-     * @param string $target
+     * @param  string        $origin
+     * @param  string        $target
      * @return NodeInterface
      */
     public function rename($target)
@@ -80,7 +80,7 @@ abstract class AbstractHandle implements HandleInterface
     }
 
     /**
-     * @param string $mode
+     * @param  string   $mode
      * @return string[]
      */
     protected function parseMode($mode)
@@ -89,7 +89,7 @@ abstract class AbstractHandle implements HandleInterface
     }
 
     /**
-     * @param string $url
+     * @param  string   $url
      * @return string[]
      */
     protected function parseUrl($url)
@@ -108,7 +108,7 @@ abstract class AbstractHandle implements HandleInterface
 
     /**
      * @param string $message
-     * @param array $context
+     * @param array  $context
      */
     protected function warn($message, array $context = [])
     {

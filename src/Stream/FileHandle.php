@@ -24,7 +24,7 @@ class FileHandle extends AbstractHandle
     }
 
     /**
-     * @param integer $perms
+     * @param  integer       $perms
      * @return NodeInterface
      */
     public function create($perms)
@@ -70,8 +70,8 @@ class FileHandle extends AbstractHandle
     }
 
     /**
-     * @param integer $offset
-     * @param integer $length
+     * @param  integer $offset
+     * @param  integer $length
      * @return string
      */
     public function read($offset = 0, $length = null)
@@ -90,7 +90,7 @@ class FileHandle extends AbstractHandle
     }
 
     /**
-     * @param string $content
+     * @param  string  $content
      * @return boolean
      */
     public function write($content)

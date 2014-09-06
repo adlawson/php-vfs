@@ -28,7 +28,7 @@ interface HandleInterface
     public function canRead();
 
     /**
-     * @param integer $perms
+     * @param  integer       $perms
      * @return NodeInterface
      */
     public function create($perms);
@@ -49,20 +49,20 @@ interface HandleInterface
     public function open();
 
     /**
-     * @param string $origin
-     * @param string $target
+     * @param  string        $origin
+     * @param  string        $target
      * @return NodeInterface
      */
     public function rename($target);
 
     /**
-     * @param integer $offset
+     * @param  integer $offset
      * @return string
      */
     public function read($offset = 0);
 
     /**
-     * @param string $content
+     * @param  string  $content
      * @return boolean
      */
     public function write($content);

@@ -88,7 +88,7 @@ class Directory implements NodeContainerInterface
     }
 
     /**
-     * @param string $name
+     * @param string        $name
      * @param NodeInterface $node
      */
     public function set($name, NodeInterface $node)

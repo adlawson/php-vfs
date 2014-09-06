@@ -17,8 +17,8 @@ class RegisteredSchemeException extends OutOfBoundsException implements Exceptio
     protected $scheme;
 
     /**
-     * @param string $scheme
-     * @param integer $code
+     * @param string    $scheme
+     * @param integer   $code
      * @param Exception $previous
      */
     public function __construct($scheme, $code = 0, Exception $previous = null)

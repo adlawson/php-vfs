@@ -22,8 +22,8 @@ class DirectoryHandle extends AbstractHandle
     }
 
     /**
-     * @param integer $perms
-     * @param boolean $recursive
+     * @param  integer       $perms
+     * @param  boolean       $recursive
      * @return NodeInterface
      */
     public function create($perms, $recursive = false)
@@ -86,7 +86,7 @@ class DirectoryHandle extends AbstractHandle
     }
 
     /**
-     * @param integer $offset
+     * @param  integer $offset
      * @return string
      */
     public function read($offset = 0)
@@ -104,7 +104,7 @@ class DirectoryHandle extends AbstractHandle
     }
 
     /**
-     * @param string $content
+     * @param  string  $content
      * @return boolean
      */
     public function write($content)
@@ -113,8 +113,8 @@ class DirectoryHandle extends AbstractHandle
     }
 
     /**
-     * @param NodeContainerInterface $root
-     * @param string $path
+     * @param  NodeContainerInterface $root
+     * @param  string                 $path
      * @return NodeContainerInterface
      */
     protected function buildNodesRecursive(NodeContainerInterface $root, $path)

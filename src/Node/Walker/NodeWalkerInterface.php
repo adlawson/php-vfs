@@ -14,8 +14,8 @@ use Vfs\Node\NodeInterface;
 interface NodeWalkerInterface
 {
     /**
-     * @param NodeInterface $root
-     * @param string $path
+     * @param  NodeInterface $root
+     * @param  string        $path
      * @return NodeInterface
      */
     public function findNode(NodeInterface $root, $path);

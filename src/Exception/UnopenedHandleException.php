@@ -20,9 +20,9 @@ class UnopenedHandleException extends RuntimeException implements ExceptionInter
 
     /**
      * @param HandleInterface $handle
-     * @param string $url
-     * @param integer $code
-     * @param Exception $previous
+     * @param string          $url
+     * @param integer         $code
+     * @param Exception       $previous
      */
     public function __construct(HandleInterface $handle, $url, $code = 0, Exception $previous = null)
     {

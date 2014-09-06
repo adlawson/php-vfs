@@ -66,7 +66,7 @@ class FileSystemBuilder
     }
 
     /**
-     * @param LoggerInterface $logger
+     * @param  LoggerInterface   $logger
      * @return FileSystemBuilder
      */
     public function setLogger(LoggerInterface $logger)
@@ -85,7 +85,7 @@ class FileSystemBuilder
     }
 
     /**
-     * @param NodeFactoryInterface $factory
+     * @param  NodeFactoryInterface $factory
      * @return FileSystemBuilder
      */
     public function setNodeFactory(NodeFactoryInterface $factory)
@@ -104,7 +104,7 @@ class FileSystemBuilder
     }
 
     /**
-     * @param NodeWalkerInterface $walker
+     * @param  NodeWalkerInterface $walker
      * @return FileSystemBuilder
      */
     public function setNodeWalker(NodeWalkerInterface $walker)
@@ -123,7 +123,7 @@ class FileSystemBuilder
     }
 
     /**
-     * @param RegistryInterface $registry
+     * @param  RegistryInterface $registry
      * @return FileSystemBuilder
      */
     public function setRegistry(RegistryInterface $registry)
@@ -142,7 +142,7 @@ class FileSystemBuilder
     }
 
     /**
-     * @param string $scheme
+     * @param  string            $scheme
      * @return FileSystemBuilder
      */
     public function setScheme($scheme)
@@ -161,7 +161,7 @@ class FileSystemBuilder
     }
 
     /**
-     * @param string $class
+     * @param  string            $class
      * @return FileSystemBuilder
      */
     public function setStreamWrapper($class)
@@ -180,7 +180,7 @@ class FileSystemBuilder
     }
 
     /**
-     * @param array $tree
+     * @param  array             $tree
      * @return FileSystemBuilder
      */
     public function setTree($tree)

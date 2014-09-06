@@ -18,7 +18,7 @@ use Vfs\Node\NodeInterface;
 class NodeFactory implements NodeFactoryInterface
 {
     /**
-     * @param NodeInterface[] $children
+     * @param  NodeInterface[]        $children
      * @return NodeContainerInterface
      */
     public function buildDirectory(array $children = [])
@@ -27,7 +27,7 @@ class NodeFactory implements NodeFactoryInterface
     }
 
     /**
-     * @param string $content
+     * @param  string        $content
      * @return NodeInterface
      */
     public function buildFile($content = '')
@@ -36,7 +36,7 @@ class NodeFactory implements NodeFactoryInterface
     }
 
     /**
-     * @param string $content
+     * @param  string        $content
      * @return NodeInterface
      */
     public function buildLink($content = '')
@@ -45,7 +45,7 @@ class NodeFactory implements NodeFactoryInterface
     }
 
     /**
-     * @param array $tree
+     * @param  array                  $tree
      * @return NodeContainerInterface
      */
     public function buildTree(array $tree)
