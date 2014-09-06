@@ -62,7 +62,7 @@ class FreadAcceptanceTest extends AcceptanceTestCase
      */
     public function testFreadFile($mode, $content, $size, $expectation)
     {
-        $resource = fopen("$this->scheme://foo/bar", $mode);
+        $resource = fopen("$this->scheme:///foo/bar", $mode);
 
         $this->assertEquals($expectation, fread($resource, $size));
 
@@ -74,7 +74,7 @@ class FreadAcceptanceTest extends AcceptanceTestCase
      */
     public function testFreadMissingFile($mode)
     {
-        $resource = fopen("$this->scheme://bar", $mode);
+        $resource = fopen("$this->scheme:///bar", $mode);
 
         $this->assertEquals('', fread($resource, 10));
 

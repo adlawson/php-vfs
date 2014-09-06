@@ -16,18 +16,18 @@ class RequireAcceptanceTest extends AcceptanceTestCase
 
     public function testIncludeFile()
     {
-        $this->assertEquals('baz', include "$this->scheme://foo/bar.php");
+        $this->assertEquals('baz', include "$this->scheme:///foo/bar.php");
     }
 
     public function testRequireFile()
     {
-        $this->assertEquals('baz', require "$this->scheme://foo/bar.php");
+        $this->assertEquals('baz', require "$this->scheme:///foo/bar.php");
     }
 
     public function testIncludeMissingFile()
     {
         $this->setExpectedException('PHPUnit_Framework_Error_Warning');
 
-        include "$this->scheme://bar.php";
+        include "$this->scheme:///bar.php";
     }
 }

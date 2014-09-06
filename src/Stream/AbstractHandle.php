@@ -99,9 +99,12 @@ abstract class AbstractHandle implements HandleInterface
         $scheme = null;
 
         if (isset($parts['scheme'])) {
-            $path = substr($url, strlen($parts['scheme'] . ':/'));
             $scheme = $parts['scheme'];
+        } else {
+            $scheme = strstr($url, '://', true);
         }
+
+        $path = '/' . ltrim(substr($url, strlen($scheme)), ':\/');
 
         return [$scheme, $path];
     }

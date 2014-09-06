@@ -338,7 +338,7 @@ class StreamWrapper
     protected function getFileSystemForUrl($url)
     {
         $parts = parse_url($url);
-        $scheme = isset($parts['scheme']) ? $parts['scheme'] : null;
+        $scheme = isset($parts['scheme']) ? $parts['scheme'] : strstr($url, '://', true);
 
         return FileSystemRegistry::getInstance()->get($scheme);
     }

@@ -13,11 +13,11 @@ class StatAcceptanceTest extends AcceptanceTestCase
 
     public function testIsDir()
     {
-        $this->assertTrue(is_dir("$this->scheme://foo"));
+        $this->assertTrue(is_dir("$this->scheme:///foo"));
     }
 
     public function testIsFile()
     {
-        $this->assertTrue(is_file("$this->scheme://foo/bar"));
+        $this->assertTrue(is_file("$this->scheme:///foo/bar"));
     }
 }
