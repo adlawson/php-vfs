@@ -78,6 +78,8 @@ class FileHandle extends AbstractHandle
     {
         if (!$this->node) {
             throw new UnopenedHandleException($this, $this->url);
+        } elseif (!$this->node instanceof FileInterface) {
+            return '';
         }
 
         if (null !== $length) {

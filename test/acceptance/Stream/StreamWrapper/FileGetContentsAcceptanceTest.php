@@ -11,6 +11,11 @@ class FileGetContentsAcceptanceTest extends AcceptanceTestCase
         ]
     ];
 
+    public function testGetDirectory()
+    {
+        $this->assertEquals('', file_get_contents("$this->scheme://foo"));
+    }
+
     public function testGetFile()
     {
         $this->assertEquals($this->tree['foo']['bar'], file_get_contents("$this->scheme://foo/bar"));

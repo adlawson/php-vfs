@@ -219,6 +219,18 @@ class FileHandleTest extends UnitTestCase
         $this->assertEquals($expected, $handle->read($offset, $length));
     }
 
+    public function testReadNonFile()
+    {
+        $handle = new FileHandle($this->fs, 'foo://bar');
+
+        $file = Mockery::mock('Vfs\Node\NodeInterface');
+
+        $this->fs->shouldReceive('get')->once()->with('/bar')->andReturn($file);
+
+        $handle->open();
+        $this->assertEquals('', $handle->read(0, PHP_INT_MAX));
+    }
+
     public function testReadThrowsWithoutOpening()
     {
         $handle = new FileHandle($this->fs, 'foo://bar');
