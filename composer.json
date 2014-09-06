@@ -9,6 +9,7 @@
         "read",
         "stream",
         "system",
+        "virtual",
         "wrapper",
         "write"
     ],
@@ -32,7 +33,7 @@
         }
     },
     "require": {
-        "php": ">=5.4.0",
+        "php": "~5.4",
         "psr/log": "~1.0"
     },
     "require-dev": {
