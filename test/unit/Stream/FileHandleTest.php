@@ -44,6 +44,15 @@ class FileHandleTest extends UnitTestCase
         ];
     }
 
+    public function dataTouch()
+    {
+        return [
+            ['a'], ['ab'], ['a+'], ['at'],
+            ['w'], ['wb'], ['w+'], ['wt'],
+            ['c'], ['cb'], ['c+'], ['ct']
+        ];
+    }
+
     public function testInterface()
     {
         $handle = new FileHandle($this->fs, '');
@@ -260,5 +269,53 @@ class FileHandleTest extends UnitTestCase
         $this->setExpectedException('Vfs\Exception\UnopenedHandleException');
 
         $handle->write('');
+    }
+
+    /**
+     * @dataProvider dataTouch
+     */
+    public function testTouch($mode)
+    {
+        $handle = new FileHandle($this->fs, 'foo://bar', $mode);
+        $atime = Mockery::mock('DateTime');
+        $mtime = Mockery::mock('DateTime');
+
+        $file = Mockery::mock('Vfs\Node\FileInterface');
+        $file->shouldReceive('setDateAccessed')->once()->with($atime);
+        $file->shouldReceive('setDateModified')->once()->with($mtime);
+
+        $factory = Mockery::mock('Vfs\Node\Factory\NodeFactoryInterface');
+        $factory->shouldReceive('buildFile')->once()->withNoArgs()->andReturn($file);
+
+        $root = Mockery::mock('Vfs\Node\NodeContainerInterface');
+        $root->shouldReceive('set')->once()->with('bar', $file);
+
+        $this->fs->shouldReceive('get')->once()->with('/')->andReturn($root);
+        $this->fs->shouldReceive('get')->once()->with('/bar');
+        $this->fs->shouldReceive('getNodeFactory')->once()->withNoArgs()->andReturn($factory);
+
+        $node = $handle->touch($mtime, $atime);
+
+        $this->assertSame($file, $node);
+    }
+
+    /**
+     * @dataProvider dataTouch
+     */
+    public function testTouchExistingFile($mode)
+    {
+        $handle = new FileHandle($this->fs, 'foo://bar', $mode);
+        $atime = Mockery::mock('DateTime');
+        $mtime = Mockery::mock('DateTime');
+
+        $file = Mockery::mock('Vfs\Node\FileInterface');
+        $file->shouldReceive('setDateAccessed')->once()->with($atime);
+        $file->shouldReceive('setDateModified')->once()->with($mtime);
+
+        $this->fs->shouldReceive('get')->once()->with('/bar')->andReturn($file);
+
+        $node = $handle->touch($mtime, $atime);
+
+        $this->assertSame($file, $node);
     }
 }

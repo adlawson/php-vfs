@@ -9,6 +9,7 @@
  */
 namespace Vfs\Stream;
 
+use DateTime;
 use Vfs\Node\LinkInterface;
 use Vfs\FileSystemRegistry;
 
@@ -130,6 +131,28 @@ class StreamWrapper
     public function stream_flush()
     {
         return true; // Non-buffered writing
+    }
+
+    /**
+     * @param string $url
+     * @param integer $option
+     * @param mixed $args
+     * @return boolean
+     */
+    public function stream_metadata($url, $option, $args)
+    {
+        if (STREAM_META_TOUCH === $option) {
+            $this->handle = $this->buildFileHandle($url, HandleInterface::MODE_WRITE_NEW);
+
+            $mtime = isset($args[0]) ? new DateTime(sprintf('@%s', $args[0])) : null;
+            $atime = isset($args[1]) ? new DateTime(sprintf('@%s', $args[1])) : $mtime;
+
+            $this->handle->touch($mtime, $atime);
+
+            return true;
+        }
+
+        return false;
     }
 
     /**

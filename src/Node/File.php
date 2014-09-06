@@ -28,8 +28,8 @@ class File implements FileInterface
         $this->mode = self::TYPE_BLOCK & self::TYPE_FILE;
 
         $this->dateAccessed = new DateTime();
-        $this->dateCreated  = new DateTime();
-        $this->dateModified = new DateTime();
+        $this->dateCreated  = clone $this->dateAccessed;
+        $this->dateModified = clone $this->dateAccessed;
     }
 
     /**
@@ -57,6 +57,14 @@ class File implements FileInterface
     }
 
     /**
+     * @param DateTime $dateTime
+     */
+    public function setDateAccessed(DateTime $dateTime)
+    {
+        $this->dateAccessed = $dateTime;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getDateCreated()
@@ -70,6 +78,14 @@ class File implements FileInterface
     public function getDateModified()
     {
         return $this->dateModified;
+    }
+
+    /**
+     * @param DateTime $dateTime
+     */
+    public function setDateModified(DateTime $dateTime)
+    {
+        $this->dateModified = $dateTime;
     }
 
     /**

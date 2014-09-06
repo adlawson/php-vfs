@@ -19,6 +19,11 @@ interface NodeInterface extends StatInterface
     public function getDateAccessed();
 
     /**
+     * @param DateTime $dateTime
+     */
+    public function setDateAccessed(DateTime $dateTime);
+
+    /**
      * @return DateTime
      */
     public function getDateCreated();
@@ -27,6 +32,11 @@ interface NodeInterface extends StatInterface
      * @return DateTime
      */
     public function getDateModified();
+
+    /**
+     * @param DateTime $dateTime
+     */
+    public function setDateModified(DateTime $dateTime);
 
     /**
      * @return integer

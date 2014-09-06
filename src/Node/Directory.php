@@ -33,8 +33,8 @@ class Directory implements NodeContainerInterface
         $this->mode = self::TYPE_BLOCK & self::TYPE_DIR;
 
         $this->dateAccessed = new DateTime();
-        $this->dateCreated  = new DateTime();
-        $this->dateModified = new DateTime();
+        $this->dateCreated  = $this->dateAccessed;
+        $this->dateModified = $this->dateAccessed;
 
         foreach ($nodes as $name => $node) {
             $this->add($name, $node);
@@ -109,6 +109,14 @@ class Directory implements NodeContainerInterface
     }
 
     /**
+     * @param DateTime $dateTime
+     */
+    public function setDateAccessed(DateTime $dateTime)
+    {
+        $this->dateAccessed = $dateTime;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getDateCreated()
@@ -122,6 +130,14 @@ class Directory implements NodeContainerInterface
     public function getDateModified()
     {
         return $this->dateModified;
+    }
+
+    /**
+     * @param DateTime $dateTime
+     */
+    public function setDateModified(DateTime $dateTime)
+    {
+        $this->dateModified = $dateTime;
     }
 
     /**

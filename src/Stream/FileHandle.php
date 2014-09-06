@@ -9,6 +9,7 @@
  */
 namespace Vfs\Stream;
 
+use DateTime;
 use Vfs\Exception\UnopenedHandleException;
 use Vfs\Node\FileInterface;
 use Vfs\Node\NodeContainerInterface;
@@ -87,6 +88,28 @@ class FileHandle extends AbstractHandle
         }
 
         return substr($this->node->getContent(), $offset);
+    }
+
+    /**
+     * @param  DateTime      $mtime
+     * @param  DateTime      $atime
+     * @return NodeInterface
+     */
+    public function touch(DateTime $mtime = null, DateTime $atime = null)
+    {
+        $node = $this->findOrBuildNode();
+
+        if (!$node) {
+            throw new UnopenedHandleException($this, $this->url);
+        }
+
+        $mtime = $mtime ?: new DateTime();
+        $atime = $atime ?: clone $mtime;
+
+        $node->setDateAccessed($atime);
+        $node->setDateModified($mtime);
+
+        return $node;
     }
 
     /**
