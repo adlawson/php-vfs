@@ -20,4 +20,9 @@ class StatAcceptanceTest extends AcceptanceTestCase
     {
         $this->assertTrue(is_file("$this->scheme:///foo/bar"));
     }
+
+    public function testTouch()
+    {
+        $this->assertTrue(touch("$this->scheme://foo/bar"));
+    }
 }
