@@ -2,8 +2,10 @@
 
 <img src="http://media.giphy.com/media/d6Unw9Ke0vCFO/giphy.gif" alt="Virtual File System" align="right" width=310/>
 
-**Master build:** [![Master branch build status][travis-master]][travis]<br/>
-**Requires:** `PHP >= 5.4 || HHVM >= 3.0`
+[![Master branch build status][ico-build]][travis]
+[![Published version][ico-package]][package]
+[![PHP ~5.4][ico-engine]][lang]
+[![MIT Licensed][ico-license]][license]
 
 **VFS** is a virtual file system for PHP built using the stream wrapper API.
 Streams are exposed just as typical `file://` or `http://` streams are to PHP's
@@ -12,7 +14,7 @@ attempts to stay true to the typical streams, including triggering warnings
 and handling edge cases appropriately.
 
 It can be installed in whichever way you prefer, but I recommend
-[Composer][packagist].
+[Composer][package].
 ```json
 {
     "require": {
@@ -68,7 +70,7 @@ need one, but just in case, I've compiled a small list of examples:
  - ...we need some more!
 
 ### Todo
-Current tasks are listed on the [github issues][gh-issues] page, but some are
+Current tasks are listed on the [github issues][issues] page, but some are
 listed here for reference:
  - Symlinks
  - File locks
@@ -94,11 +96,12 @@ The content of this library is released under the **MIT License** by
 **Andrew Lawson**.<br/> You can find a copy of this license in
 [`LICENSE`][license] or at http://opensource.org/licenses/mit.
 
-<!-- Project links -->
 [travis]: https://travis-ci.org/adlawson/vfs.php
-[travis-master]: https://travis-ci.org/adlawson/vfs.php.png?branch=master
-[packagist]: https://packagist.org/packages/adlawson/vfs
-[gh-issues]: https://github.com/adlawson/vfs.php/issues
-
-<!-- Files -->
-[license]: /LICENSE
+[lang]: http://php.net
+[package]: https://packagist.org/packages/adlawson/vfs
+[ico-license]: http://img.shields.io/packagist/l/adlawson/vfs.svg?style=flat
+[ico-package]: http://img.shields.io/packagist/v/adlawson/vfs.svg?style=flat
+[ico-build]: http://img.shields.io/travis/adlawson/vfs.php/master.svg?style=flat
+[ico-engine]: http://img.shields.io/badge/php-~5.4-8892BF.svg?style=flat
+[issues]: https://github.com/adlawson/vfs.php/issues
+[license]: LICENSE
