@@ -1,4 +1,5 @@
 # VFS (Virtual File System)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/adlawson/vfs.php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 <img src="http://media.giphy.com/media/d6Unw9Ke0vCFO/giphy.gif" alt="Virtual File System" align="right" width=310/>
 
