@@ -96,12 +96,12 @@ The content of this library is released under the **MIT License** by
 **Andrew Lawson**.<br/> You can find a copy of this license in
 [`LICENSE`][license] or at http://opensource.org/licenses/mit.
 
-[travis]: https://travis-ci.org/adlawson/vfs.php
+[travis]: https://travis-ci.org/adlawson/php-vfs
 [lang]: http://php.net
 [package]: https://packagist.org/packages/adlawson/vfs
 [ico-license]: http://img.shields.io/packagist/l/adlawson/vfs.svg?style=flat
 [ico-package]: http://img.shields.io/packagist/v/adlawson/vfs.svg?style=flat
-[ico-build]: http://img.shields.io/travis/adlawson/vfs.php/master.svg?style=flat
+[ico-build]: http://img.shields.io/travis/adlawson/php-vfs/master.svg?style=flat
 [ico-engine]: http://img.shields.io/badge/php-~5.4-8892BF.svg?style=flat
-[issues]: https://github.com/adlawson/vfs.php/issues
+[issues]: https://github.com/adlawson/php-vfs/issues
 [license]: LICENSE
