@@ -9,6 +9,7 @@
  */
 namespace Vfs\Stream;
 
+use Vfs\Node\NodeContainerInterface;
 use Vfs\Exception\UnopenedHandleException;
 
 class DirectoryHandle extends AbstractHandle
@@ -32,9 +33,9 @@ class DirectoryHandle extends AbstractHandle
 
         if (!$this->node) {
             $parentPath = dirname($this->path);
-            $parent = $this->fs->get($parentPath);
 
-            if (!$parent && $this->checkBit($options, STREAM_MKDIR_RECURSIVE)) {
+            $parent = $this->fs->get($parentPath);
+            if (!$parent && (boolean) $recursive) {
                 $parent = $this->buildNodesRecursive($this->fs->get('/'), $this->path);
             }
 
@@ -114,10 +115,9 @@ class DirectoryHandle extends AbstractHandle
 
     /**
      * @param  NodeContainerInterface $root
-     * @param  string                 $path
      * @return NodeContainerInterface
      */
-    protected function buildNodesRecursive(NodeContainerInterface $root, $path)
+    protected function buildNodesRecursive(NodeContainerInterface $root)
     {
         $factory = $this->fs->getNodeFactory();
         $walker = $this->fs->getNodeWalker();

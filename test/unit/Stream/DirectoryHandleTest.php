@@ -50,4 +50,30 @@ class DirectoryHandleTest extends UnitTestCase
 
         $handle->rename('foo://bar');
     }
+
+    public function testCreateRecursively()
+    {
+        $handle = new DirectoryHandle($this->fs, 'foo://foo/bar');
+
+        $rootContainer = Mockery::mock('Vfs\Node\NodeContainerInterface');
+        $builtDir = Mockery::Mock('Vfs\Node\Directory');
+        $builtContainer = Mockery::mock('Vfs\Node\NodeContainerInterface');
+        $nodeFactory = Mockery::mock('Vfs\Node\NodeFactoryInterface');
+        $nodeWalker = Mockery::mock('Vfs\Node\NodeWalkerInterface');
+
+        $builtContainer->shouldReceive('add')->with(basename('/foo/bar'), $builtDir);
+        $nodeFactory->shouldReceive('buildDirectory')->andReturn($builtDir);
+        $nodeWalker->shouldReceive('walkPath')->once()->andReturn($builtContainer);
+
+        $this->fs->shouldReceive('get')->once()->with('/foo/bar');
+        $this->fs->shouldReceive('get')->once()->with('/foo');
+
+
+        $this->fs->shouldReceive('get')->once()->with('/')->andReturn($rootContainer);
+        $this->fs->shouldReceive('getNodeFactory')->times(2)->andReturn($nodeFactory);
+        $this->fs->shouldReceive('getNodeWalker')->once()->andReturn($nodeWalker);
+
+
+        $handle->create(0777, true);
+    }
 }
