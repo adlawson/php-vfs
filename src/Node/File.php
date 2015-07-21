@@ -103,12 +103,4 @@ class File implements FileInterface
     {
         return strlen($this->content);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return $this->content;
-    }
 }

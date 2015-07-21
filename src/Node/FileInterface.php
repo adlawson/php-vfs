@@ -20,9 +20,4 @@ interface FileInterface extends NodeInterface
      * @param string $content
      */
     public function setContent($content);
-
-    /**
-     * @return string The file content
-     */
-    public function __toString();
 }

@@ -29,13 +29,6 @@ class FileTest extends UnitTestCase
         $this->assertEquals('foo', $file->getContent());
     }
 
-    public function testToString()
-    {
-        $file = new File('foo');
-
-        $this->assertEquals('foo', (string) $file);
-    }
-
     public function testGetDateAccessed()
     {
         $file = new File();
