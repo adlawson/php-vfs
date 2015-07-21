@@ -1,6 +1,9 @@
 {
     "name": "adlawson/vfs",
     "description": "Virtual file system",
+    "homepage": "https://github.com/adlawson/php-vfs",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "dir",
         "directory",
@@ -13,13 +16,10 @@
         "wrapper",
         "write"
     ],
-    "license": "MIT",
-    "type": "library",
     "authors": [
         {
             "name": "Andrew Lawson",
-            "homepage": "http://adlawson.com",
-            "role": "Developer"
+            "homepage": "http://adlawson.com"
         }
     ],
     "autoload": {
@@ -41,5 +41,15 @@
         "fabpot/php-cs-fixer": "^1.9",
         "mockery/mockery": "^0.9",
         "phpunit/phpunit": "^4.7"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "test:acceptance": "vendor/bin/phpunit --colors=always --testsuite acceptance",
+        "test:functional": "vendor/bin/phpunit --colors=always --testsuite functional",
+        "test:unit": "vendor/bin/phpunit --colors=always --testsuite unit",
+        "lint:fix": [
+            "vendor/bin/php-cs-fixer fix src --level=psr2",
+            "vendor/bin/php-cs-fixer fix test --level=psr2"
+        ]
     }
 }
