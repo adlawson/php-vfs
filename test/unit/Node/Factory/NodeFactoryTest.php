@@ -4,7 +4,7 @@ namespace Vfs\Node\Factory;
 use Mockery;
 use Vfs\Test\UnitTestCase;
 
-class FactoryTest extends UnitTestCase
+class NodeFactoryTest extends UnitTestCase
 {
     public function setUp()
     {

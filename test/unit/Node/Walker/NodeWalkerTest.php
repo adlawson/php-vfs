@@ -4,7 +4,7 @@ namespace Vfs\Node\Walker;
 use Mockery;
 use Vfs\Test\UnitTestCase;
 
-class WalkerTest extends UnitTestCase
+class NodeWalkerTest extends UnitTestCase
 {
     public function setUp()
     {
