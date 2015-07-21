@@ -19,4 +19,12 @@ interface NodeWalkerInterface
      * @return NodeInterface
      */
     public function findNode(NodeInterface $root, $path);
+
+    /**
+     * @param  NodeInterface $root
+     * @param  string        $path
+     * @param  callable      $fn
+     * @return NodeInterface
+     */
+    public function walkPath(NodeInterface $root, $path, callable $fn);
 }

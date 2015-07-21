@@ -36,19 +36,11 @@ abstract class AbstractHandle implements HandleInterface
         list($this->scheme, $this->path) = $this->parseUrl($url);
     }
 
-    /**
-     * @return NodeInterface
-     */
     public function getNode()
     {
         return $this->node;
     }
 
-    /**
-     * @param  string        $origin
-     * @param  string        $target
-     * @return NodeInterface
-     */
     public function rename($target)
     {
         $this->node = $this->findNode($this->path);

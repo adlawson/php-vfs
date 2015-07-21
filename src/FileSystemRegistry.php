@@ -39,9 +39,6 @@ class FileSystemRegistry implements RegistryInterface
         return self::$instance;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function add($scheme, FileSystemInterface $fs)
     {
         if ($this->has($scheme)) {
@@ -51,9 +48,6 @@ class FileSystemRegistry implements RegistryInterface
         $this->registered[$scheme] = $fs;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function get($scheme)
     {
         if (!$this->has($scheme)) {
@@ -63,17 +57,11 @@ class FileSystemRegistry implements RegistryInterface
         return $this->registered[$scheme];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function has($scheme)
     {
         return isset($this->registered[$scheme]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function remove($scheme)
     {
         if (!$this->has($scheme)) {

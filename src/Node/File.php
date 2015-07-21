@@ -32,73 +32,46 @@ class File implements FileInterface
         $this->dateModified = clone $this->dateAccessed;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getContent()
     {
         return $this->content;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setContent($content)
     {
         $this->content = (string) $content;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDateAccessed()
     {
         return $this->dateAccessed;
     }
 
-    /**
-     * @param DateTime $dateTime
-     */
     public function setDateAccessed(DateTime $dateTime)
     {
         $this->dateAccessed = $dateTime;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDateCreated()
     {
         return $this->dateCreated;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDateModified()
     {
         return $this->dateModified;
     }
 
-    /**
-     * @param DateTime $dateTime
-     */
     public function setDateModified(DateTime $dateTime)
     {
         $this->dateModified = $dateTime;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getMode()
     {
         return $this->mode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getSize()
     {
         return strlen($this->content);

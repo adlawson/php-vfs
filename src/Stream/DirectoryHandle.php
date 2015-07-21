@@ -14,19 +14,11 @@ use Vfs\Exception\UnopenedHandleException;
 
 class DirectoryHandle extends AbstractHandle
 {
-    /**
-     * @return boolean
-     */
     public function canRead()
     {
         return true;
     }
 
-    /**
-     * @param  integer       $perms
-     * @param  boolean       $recursive
-     * @return NodeInterface
-     */
     public function create($perms, $recursive = false)
     {
         $this->node = $this->findNode();
@@ -55,9 +47,6 @@ class DirectoryHandle extends AbstractHandle
         return $this->node;
     }
 
-    /**
-     * @return boolean
-     */
     public function destroy()
     {
         $this->node = $this->findNode();
@@ -78,18 +67,11 @@ class DirectoryHandle extends AbstractHandle
         return true;
     }
 
-    /**
-     * @return NodeInterface
-     */
     public function open()
     {
         return $this->node = $this->findNode();
     }
 
-    /**
-     * @param  integer $offset
-     * @return string
-     */
     public function read($offset = 0)
     {
         if (!$this->node) {
@@ -104,10 +86,6 @@ class DirectoryHandle extends AbstractHandle
         }
     }
 
-    /**
-     * @param  string  $content
-     * @return boolean
-     */
     public function write($content)
     {
         return false;

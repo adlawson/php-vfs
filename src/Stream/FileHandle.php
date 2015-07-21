@@ -16,26 +16,16 @@ use Vfs\Node\NodeContainerInterface;
 
 class FileHandle extends AbstractHandle
 {
-    /**
-     * @return boolean
-     */
     public function canRead()
     {
         return self::MODE_READ === $this->mode || self::MOD_EXTENDED === $this->modifier;
     }
 
-    /**
-     * @param  integer       $perms
-     * @return NodeInterface
-     */
     public function create($perms)
     {
         return $this->node = $this->findOrBuildNode();
     }
 
-    /**
-     * @return boolean
-     */
     public function destroy()
     {
         $this->node = $this->findNode();
@@ -56,9 +46,6 @@ class FileHandle extends AbstractHandle
         return true;
     }
 
-    /**
-     * @return NodeInterface
-     */
     public function open()
     {
         $this->node = $this->findOrBuildNode();
@@ -70,11 +57,6 @@ class FileHandle extends AbstractHandle
         return $this->node;
     }
 
-    /**
-     * @param  integer $offset
-     * @param  integer $length
-     * @return string
-     */
     public function read($offset = 0, $length = null)
     {
         if (!$this->node) {
@@ -90,11 +72,6 @@ class FileHandle extends AbstractHandle
         return substr($this->node->getContent(), $offset);
     }
 
-    /**
-     * @param  DateTime      $mtime
-     * @param  DateTime      $atime
-     * @return NodeInterface
-     */
     public function touch(DateTime $mtime = null, DateTime $atime = null)
     {
         $node = $this->findOrBuildNode();
@@ -112,10 +89,6 @@ class FileHandle extends AbstractHandle
         return $node;
     }
 
-    /**
-     * @param  string  $content
-     * @return boolean
-     */
     public function write($content)
     {
         if (!$this->node) {

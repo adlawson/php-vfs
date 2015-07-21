@@ -31,4 +31,10 @@ interface NodeFactoryInterface
      * @return NodeInterface
      */
     public function buildLink($content = '');
+
+    /**
+     * @param  array                  $tree
+     * @return NodeContainerInterface
+     */
+    public function buildTree(array $tree);
 }

@@ -61,49 +61,31 @@ class FileSystem implements FileSystemInterface
         return $builder->build();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function get($path)
     {
         return $this->walker->findNode($this->root, $path);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLogger()
     {
         return $this->logger;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getNodeFactory()
     {
         return $this->factory;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getNodeWalker()
     {
         return $this->walker;
     }
 
-    /**
-     * @return string
-     */
     public function getScheme()
     {
         return $this->scheme;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function mount()
     {
         if ($this->registry->has($this->scheme) || in_array($this->scheme, stream_get_wrappers())) {
@@ -119,9 +101,6 @@ class FileSystem implements FileSystemInterface
         return false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function unmount()
     {
         if (!$this->registry->has($this->scheme) && !in_array($this->scheme, stream_get_wrappers())) {

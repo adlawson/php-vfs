@@ -17,37 +17,21 @@ use Vfs\Node\NodeInterface;
 
 class NodeFactory implements NodeFactoryInterface
 {
-    /**
-     * @param  NodeInterface[]        $children
-     * @return NodeContainerInterface
-     */
     public function buildDirectory(array $children = [])
     {
         return new Directory($children);
     }
 
-    /**
-     * @param  string        $content
-     * @return NodeInterface
-     */
     public function buildFile($content = '')
     {
         return new File($content);
     }
 
-    /**
-     * @param  string        $content
-     * @return NodeInterface
-     */
     public function buildLink($content = '')
     {
         throw new LogicException('Symlinks aren\'t supported yet.');
     }
 
-    /**
-     * @param  array                  $tree
-     * @return NodeContainerInterface
-     */
     public function buildTree(array $tree)
     {
         $nodes = [];

@@ -24,11 +24,6 @@ class NodeWalker implements NodeWalkerInterface
         $this->separator = $separator;
     }
 
-    /**
-     * @param  NodeInterface $root
-     * @param  string        $path
-     * @return NodeInterface
-     */
     public function findNode(NodeInterface $root, $path)
     {
         $parts = $this->splitPath($path);
@@ -43,12 +38,6 @@ class NodeWalker implements NodeWalkerInterface
         });
     }
 
-    /**
-     * @param  NodeInterface $root
-     * @param  string        $path
-     * @param  callable      $fn
-     * @return NodeInterface
-     */
     public function walkPath(NodeInterface $root, $path, callable $fn)
     {
         $parts = $this->splitPath($path);

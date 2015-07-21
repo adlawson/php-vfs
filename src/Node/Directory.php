@@ -43,9 +43,6 @@ class Directory implements NodeContainerInterface
         $this->set(self::DOT_SELF, $this);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function add($name, NodeInterface $node)
     {
         if ($this->has($name)) {
@@ -55,9 +52,6 @@ class Directory implements NodeContainerInterface
         $this->set($name, $node);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function get($name)
     {
         if (!$this->has($name)) {
@@ -67,17 +61,11 @@ class Directory implements NodeContainerInterface
         return $this->nodes[$name];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function has($name)
     {
         return isset($this->nodes[$name]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function remove($name)
     {
         if (!$this->has($name)) {
@@ -87,10 +75,6 @@ class Directory implements NodeContainerInterface
         unset($this->nodes[$name]);
     }
 
-    /**
-     * @param string        $name
-     * @param NodeInterface $node
-     */
     public function set($name, NodeInterface $node)
     {
         $this->nodes[$name] = $node;
@@ -100,65 +84,41 @@ class Directory implements NodeContainerInterface
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDateAccessed()
     {
         return $this->dateAccessed;
     }
 
-    /**
-     * @param DateTime $dateTime
-     */
     public function setDateAccessed(DateTime $dateTime)
     {
         $this->dateAccessed = $dateTime;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDateCreated()
     {
         return $this->dateCreated;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getDateModified()
     {
         return $this->dateModified;
     }
 
-    /**
-     * @param DateTime $dateTime
-     */
     public function setDateModified(DateTime $dateTime)
     {
         $this->dateModified = $dateTime;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getIterator()
     {
         return new ArrayIterator($this->nodes);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getMode()
     {
         return $this->mode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getSize()
     {
         $size = 0;
