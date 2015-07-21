@@ -68,4 +68,19 @@ class FileSystemTest extends UnitTestCase
 
         $this->fs->unmount();
     }
+
+    public function testGetScheme()
+    {
+        $this->assertSame($this->scheme, $this->fs->getScheme());
+    }
+
+    public function testGetSchemeWithoutColonSlashSlash()
+    {
+        $factory = Mockery::mock('Vfs\Node\Factory\NodeFactoryInterface');
+        $factory->shouldReceive('buildDirectory')->once()->withNoArgs()->andReturn($this->root);
+
+        $fs = new FileSystem("foo://", $this->wrapperClass, $factory, $this->walker, $this->registry, $this->logger);
+
+        $this->assertSame($this->scheme, $fs->getScheme());
+    }
 }
