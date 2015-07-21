@@ -41,7 +41,7 @@ class FileSystem implements FileSystemInterface
         LoggerInterface $logger
     ) {
         $this->wrapperClass = $wrapperClass;
-        $this->scheme = $this->formatScheme($scheme);
+        $this->scheme = rtrim($scheme, ':/\\');
         $this->walker = $walker;
         $this->logger = $logger;
         $this->factory = $factory;
@@ -58,10 +58,7 @@ class FileSystem implements FileSystemInterface
     {
         $builder = new FileSystemBuilder($scheme);
 
-        $fs = $builder->build();
-        $fs->mount();
-
-        return $fs;
+        return $builder->build();
     }
 
     /**
@@ -138,14 +135,5 @@ class FileSystem implements FileSystemInterface
         }
 
         return false;
-    }
-
-    /**
-     * @param  string $scheme
-     * @return string
-     */
-    protected function formatScheme($scheme)
-    {
-        return rtrim($scheme, ':/\\');
     }
 }
