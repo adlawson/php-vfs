@@ -120,7 +120,7 @@ class DirectoryTest extends UnitTestCase
     {
         $dir = new Directory();
 
-        $this->assertEquals(0170000 & 0040000, $dir->getMode());
+        $this->assertEquals(StatInterface::TYPE_DIR, $dir->getMode() & StatInterface::S_IFMT);
     }
 
     public function testGetSize()
