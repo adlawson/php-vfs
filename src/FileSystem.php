@@ -17,37 +17,37 @@ use Vfs\Node\Walker\NodeWalkerInterface;
 
 class FileSystem implements FileSystemInterface
 {
-    protected $factory;
-    protected $registry;
     protected $logger;
+    protected $nodeFactory;
+    protected $nodeWalker;
+    protected $registry;
     protected $scheme;
-    protected $walker;
     protected $wrapperClass;
 
     /**
      * @param string               $scheme
      * @param string               $wrapperClass
-     * @param NodeFactoryInterface $factory
-     * @param NodeWalkerInterface  $walker
+     * @param NodeFactoryInterface $nodeFactory
+     * @param NodeWalkerInterface  $nodeWalker
      * @param RegistryInterface    $registry
      * @param LoggerInterface      $logger
      */
     public function __construct(
         $scheme,
         $wrapperClass,
-        NodeFactoryInterface $factory,
-        NodeWalkerInterface $walker,
+        NodeFactoryInterface $nodeFactory,
+        NodeWalkerInterface $nodeWalker,
         RegistryInterface $registry,
         LoggerInterface $logger
     ) {
         $this->wrapperClass = $wrapperClass;
         $this->scheme = rtrim($scheme, ':/\\');
-        $this->walker = $walker;
+        $this->nodeWalker = $nodeWalker;
         $this->logger = $logger;
-        $this->factory = $factory;
+        $this->nodeFactory = $nodeFactory;
         $this->registry = $registry;
 
-        $this->root = $factory->buildDirectory();
+        $this->root = $nodeFactory->buildDirectory();
     }
 
     /**
@@ -63,7 +63,7 @@ class FileSystem implements FileSystemInterface
 
     public function get($path)
     {
-        return $this->walker->findNode($this->root, $path);
+        return $this->nodeWalker->findNode($this->root, $path);
     }
 
     public function getLogger()
@@ -73,12 +73,12 @@ class FileSystem implements FileSystemInterface
 
     public function getNodeFactory()
     {
-        return $this->factory;
+        return $this->nodeFactory;
     }
 
     public function getNodeWalker()
     {
-        return $this->walker;
+        return $this->nodeWalker;
     }
 
     public function getScheme()

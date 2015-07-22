@@ -18,11 +18,11 @@ use Vfs\Node\Walker\NodeWalkerInterface;
 
 class FileSystemBuilder
 {
-    protected $factory;
-    protected $registry;
     protected $logger;
+    protected $nodeFactory;
+    protected $nodeWalker;
+    protected $registry;
     protected $scheme;
-    protected $walker;
     protected $wrapperClass;
     protected $tree = [];
 
@@ -49,8 +49,8 @@ class FileSystemBuilder
         );
 
         $root = $fs->get('/');
-        $factory = $fs->getNodeFactory();
-        foreach ($factory->buildTree($this->getTree()) as $name => $node) {
+        $nodeFactory = $fs->getNodeFactory();
+        foreach ($nodeFactory->buildTree($this->getTree()) as $name => $node) {
             $root->set($name, $node);
         }
 
@@ -81,16 +81,16 @@ class FileSystemBuilder
      */
     public function getNodeFactory()
     {
-        return $this->factory;
+        return $this->nodeFactory;
     }
 
     /**
-     * @param  NodeFactoryInterface $factory
+     * @param  NodeFactoryInterface $nodeFactory
      * @return FileSystemBuilder
      */
-    public function setNodeFactory(NodeFactoryInterface $factory)
+    public function setNodeFactory(NodeFactoryInterface $nodeFactory)
     {
-        $this->factory = $factory;
+        $this->nodeFactory = $nodeFactory;
 
         return $this;
     }
@@ -100,16 +100,16 @@ class FileSystemBuilder
      */
     public function getNodeWalker()
     {
-        return $this->walker;
+        return $this->nodeWalker;
     }
 
     /**
-     * @param  NodeWalkerInterface $walker
+     * @param  NodeWalkerInterface $nodeWalker
      * @return FileSystemBuilder
      */
-    public function setNodeWalker(NodeWalkerInterface $walker)
+    public function setNodeWalker(NodeWalkerInterface $nodeWalker)
     {
-        $this->walker = $walker;
+        $this->nodeWalker = $nodeWalker;
 
         return $this;
     }
