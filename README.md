@@ -35,6 +35,7 @@ use Vfs\Node\File;
 
 // Create and mount the file system
 $fs = FileSystem::factory('vfs://');
+$fs->mount();
 
 // Add `/foo` and `/foo/bar.txt`
 $foo = new Directory(['bar.txt' => new File('Hello, World!')]);
