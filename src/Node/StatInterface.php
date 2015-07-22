@@ -41,13 +41,13 @@ interface StatInterface
     const S_IWOTH  = 0000002;
     const S_IXOTH  = 0000001;
 
-    const TYPE_SOCKET = self::S_IFMT & self::S_IFSOCK;
-    const TYPE_LINK   = self::S_IFMT & self::S_IFLNK;
-    const TYPE_FILE   = self::S_IFMT & self::S_IFREG;
-    const TYPE_DIR    = self::S_IFMT & self::S_IFDIR;
-    const TYPE_PIPE   = self::S_IFMT & self::S_IFIFO;
-    const DEV_BLOCK   = self::S_IFMT & self::S_IFBLK;
-    const DEV_CHAR    = self::S_IFMT & self::S_IFCHR;
+    const TYPE_SOCKET = self::S_IFSOCK;
+    const TYPE_LINK   = self::S_IFLNK;
+    const TYPE_FILE   = self::S_IFREG;
+    const TYPE_DIR    = self::S_IFDIR;
+    const TYPE_PIPE   = self::S_IFIFO;
+    const DEV_BLOCK   = self::S_IFBLK;
+    const DEV_CHAR    = self::S_IFCHR;
 
     const SET_GROUP  = self::S_ISGID;
     const SET_USER   = self::S_ISUID;
