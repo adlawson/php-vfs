@@ -8,6 +8,7 @@ php:
   - hhvm
 
 install:
+  - travis_retry composer self-update
   - travis_retry composer install --no-interaction --ignore-platform-reqs
 
 script:
