@@ -54,7 +54,7 @@ class FileTest extends UnitTestCase
     {
         $file = new File();
 
-        $this->assertEquals(StatInterface::TYPE_FILE, $file->getMode() & StatInterface::S_IFMT);
+        $this->assertEquals(StatInterface::TYPE_FILE, $file->getMode() & StatInterface::TYPE_MASK);
     }
 
     public function testGetSize()
