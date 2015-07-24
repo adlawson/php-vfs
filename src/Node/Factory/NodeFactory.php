@@ -11,9 +11,11 @@ namespace Vfs\Node\Factory;
 
 use LogicException;
 use Vfs\Node\Directory;
+use Vfs\Node\DirectoryLink;
 use Vfs\Node\File;
+use Vfs\Node\FileLink;
+use Vfs\Node\FileInterface;
 use Vfs\Node\NodeContainerInterface;
-use Vfs\Node\NodeInterface;
 
 class NodeFactory implements NodeFactoryInterface
 {
@@ -22,14 +24,19 @@ class NodeFactory implements NodeFactoryInterface
         return new Directory($children);
     }
 
+    public function buildDirectoryLink(NodeContainerInterface $target)
+    {
+        return new DirectoryLink($target);
+    }
+
     public function buildFile($content = '')
     {
         return new File($content);
     }
 
-    public function buildLink($content = '')
+    public function buildFileLink(FileInterface $target)
     {
-        throw new LogicException('Symlinks aren\'t supported yet.');
+        return new FileLink($target);
     }
 
     public function buildTree(array $tree)

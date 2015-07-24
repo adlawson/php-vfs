@@ -9,6 +9,8 @@
  */
 namespace Vfs\Node\Factory;
 
+use Vfs\Node\FileInterface;
+use Vfs\Node\LinkInterface;
 use Vfs\Node\NodeContainerInterface;
 use Vfs\Node\NodeInterface;
 
@@ -20,6 +22,12 @@ interface NodeFactoryInterface
      */
     public function buildDirectory(array $children = []);
 
+   /**
+    * @param  NodeContainerInterface $target
+    * @return LinkInterface
+    */
+   public function buildDirectoryLink(NodeContainerInterface $target);
+
     /**
      * @param  string        $content
      * @return NodeInterface
@@ -27,10 +35,10 @@ interface NodeFactoryInterface
     public function buildFile($content = '');
 
     /**
-     * @param  string        $content
-     * @return NodeInterface
+     * @param  FileInterface $file
+     * @return LinkInterface
      */
-    public function buildLink($content = '');
+    public function buildFileLink(FileInterface $target);
 
     /**
      * @param  array                  $tree
