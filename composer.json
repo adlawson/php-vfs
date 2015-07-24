@@ -43,10 +43,10 @@
         "phpunit/phpunit": "^4.7"
     },
     "scripts": {
-        "test": "vendor/bin/phpunit --colors=always",
-        "test:acceptance": "vendor/bin/phpunit --colors=always --testsuite acceptance",
-        "test:functional": "vendor/bin/phpunit --colors=always --testsuite functional",
-        "test:unit": "vendor/bin/phpunit --colors=always --testsuite unit",
+        "test": "vendor/bin/phpunit -v --colors=always",
+        "test:acceptance": "vendor/bin/phpunit -v --colors=always --testsuite acceptance",
+        "test:functional": "vendor/bin/phpunit -v --colors=always --testsuite functional",
+        "test:unit": "vendor/bin/phpunit -v --colors=always --testsuite unit",
         "lint:fix": [
             "vendor/bin/php-cs-fixer fix src --level=psr2",
             "vendor/bin/php-cs-fixer fix test --level=psr2"

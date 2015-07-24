@@ -2,6 +2,8 @@
 namespace Vfs\Node\Factory;
 
 use Mockery;
+use Vfs\Node\Directory;
+use Vfs\Node\File;
 use Vfs\Test\UnitTestCase;
 
 class NodeFactoryTest extends UnitTestCase
@@ -24,6 +26,15 @@ class NodeFactoryTest extends UnitTestCase
         $this->assertEquals('foo', $file->getContent());
     }
 
+    public function testBuildFileLink()
+    {
+        $file = new File();
+        $link = $this->factory->buildFileLink($file);
+
+        $this->assertInstanceOf('Vfs\Node\FileInterface', $link);
+        $this->assertInstanceOf('Vfs\Node\LinkInterface', $link);
+    }
+
     public function testBuildDirectory()
     {
         $node = Mockery::mock('Vfs\Node\NodeInterface');
@@ -31,6 +42,15 @@ class NodeFactoryTest extends UnitTestCase
 
         $this->assertInstanceof('Vfs\Node\NodeContainerInterface', $dir);
         $this->assertSame($node, $dir->get('foo'));
+    }
+
+    public function testBuildDirectoryLink()
+    {
+        $dir = new Directory();
+        $link = $this->factory->buildDirectoryLink($dir);
+
+        $this->assertInstanceOf('Vfs\Node\NodeContainerInterface', $link);
+        $this->assertInstanceOf('Vfs\Node\LinkInterface', $link);
     }
 
     public function testBuildTree()
