@@ -41,6 +41,7 @@ interface StatInterface
     const S_IWOTH  = 0000002;
     const S_IXOTH  = 0000001;
 
+    const TYPE_MASK   = self::S_IFMT;
     const TYPE_SOCKET = self::S_IFSOCK;
     const TYPE_LINK   = self::S_IFLNK;
     const TYPE_FILE   = self::S_IFREG;
