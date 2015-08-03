@@ -25,7 +25,7 @@ class DirectoryLink implements NodeContainerInterface, LinkInterface
     public function __construct(NodeContainerInterface $directory)
     {
         $this->directory = $directory;
-        $this->mode = self::TYPE_LINK;
+        $this->mode = self::TYPE_LINK | self::OTHER_FULL;
 
         $this->dateAccessed = new DateTime();
         $this->dateCreated  = clone $this->dateAccessed;
