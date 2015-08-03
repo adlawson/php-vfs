@@ -30,7 +30,7 @@ class Directory implements NodeContainerInterface
      */
     public function __construct(array $nodes = [])
     {
-        $this->mode = self::TYPE_DIR;
+        $this->mode = self::TYPE_DIR | self::OTHER_FULL;
 
         $this->dateAccessed = new DateTime();
         $this->dateCreated  = $this->dateAccessed;
