@@ -22,7 +22,7 @@ class AcceptanceTestCase extends TestCase
 
     public function setUp()
     {
-        $this->fs = $this->buildFileSystem($this->wrapperClass);
+        $this->fs = $this->buildFileSystem();
     }
 
     public function tearDown()

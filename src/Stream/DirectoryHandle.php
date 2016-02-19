@@ -28,7 +28,7 @@ class DirectoryHandle extends AbstractHandle
 
             $parent = $this->fs->get($parentPath);
             if (!$parent && (boolean) $recursive) {
-                $parent = $this->buildNodesRecursive($this->fs->get('/'), $this->path);
+                $parent = $this->buildNodesRecursive($this->fs->get('/'));
             }
 
             if ($parent) {
