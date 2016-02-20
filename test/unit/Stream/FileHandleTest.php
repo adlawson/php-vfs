@@ -87,7 +87,7 @@ class FileHandleTest extends UnitTestCase
         ]);
 
         $this->fs->shouldReceive('get')->once()->with('/foo');
-        $this->fs->shouldReceive('get')->times(2)->with('/');
+        $this->fs->shouldReceive('get')->times(2)->with(DIRECTORY_SEPARATOR);
         $this->fs->shouldReceive('getLogger')->once()->withNoArgs()->andReturn($logger);
 
         $handle->rename('foo://bar');
@@ -290,7 +290,7 @@ class FileHandleTest extends UnitTestCase
         $root = Mockery::mock('Vfs\Node\NodeContainerInterface');
         $root->shouldReceive('set')->once()->with('bar', $file);
 
-        $this->fs->shouldReceive('get')->once()->with('/')->andReturn($root);
+        $this->fs->shouldReceive('get')->once()->with(DIRECTORY_SEPARATOR)->andReturn($root);
         $this->fs->shouldReceive('get')->once()->with('/bar');
         $this->fs->shouldReceive('getNodeFactory')->once()->withNoArgs()->andReturn($factory);
 

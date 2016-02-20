@@ -26,9 +26,6 @@ class NodeWalker implements NodeWalkerInterface
 
     public function findNode(NodeInterface $root, $path)
     {
-        $parts = $this->splitPath($path);
-        $node = $root;
-
         return $this->walkPath($root, $path, function (NodeInterface $node, $name) {
             if (!$node instanceof NodeContainerInterface || !$node->has($name)) {
                 return null;
@@ -58,6 +55,8 @@ class NodeWalker implements NodeWalkerInterface
      */
     protected function splitPath($path)
     {
+        $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
+
         return array_filter(explode($this->separator, $path));
     }
 }

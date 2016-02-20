@@ -25,7 +25,7 @@ class FileLink implements FileInterface, LinkInterface
     public function __construct(FileInterface $file)
     {
         $this->file = $file;
-        $this->mode = self::TYPE_LINK | self::OTHER_FULL;
+        $this->mode = self::TYPE_LINK | self::OTHER_FULL | self::USER_FULL;
 
         $this->dateAccessed = new DateTime();
         $this->dateCreated  = clone $this->dateAccessed;

@@ -23,6 +23,7 @@ class FileSystem implements FileSystemInterface
     protected $registry;
     protected $scheme;
     protected $wrapperClass;
+    protected $root;
 
     /**
      * @param string               $scheme

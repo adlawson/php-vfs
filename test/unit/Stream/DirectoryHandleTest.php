@@ -45,7 +45,7 @@ class DirectoryHandleTest extends UnitTestCase
         ]);
 
         $this->fs->shouldReceive('get')->once()->with('/foo');
-        $this->fs->shouldReceive('get')->times(2)->with('/');
+        $this->fs->shouldReceive('get')->times(2)->with(DIRECTORY_SEPARATOR);
         $this->fs->shouldReceive('getLogger')->once()->withNoArgs()->andReturn($logger);
 
         $handle->rename('foo://bar');
