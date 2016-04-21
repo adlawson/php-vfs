@@ -61,7 +61,7 @@ class DirectoryHandle extends AbstractHandle
             ]);
         }
 
-        $parent = $fs->get(dirname($this->path));
+        $parent = $this->fs->get(dirname($this->path));
         $parent->remove(basename($this->path));
 
         return true;
