@@ -84,6 +84,8 @@ class DirectoryHandle extends AbstractHandle
                 return $name;
             }
         }
+
+        return false;
     }
 
     public function write($content)
