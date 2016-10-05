@@ -24,6 +24,7 @@ interface NodeContainerInterface extends NodeInterface, IteratorAggregate
 
     /**
      * @param  string               $name
+     * @return NodeInterface
      * @throws MissingNodeException If a node doesn't exist in container with name
      */
     public function get($name);
