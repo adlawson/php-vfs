@@ -35,7 +35,7 @@ interface NodeFactoryInterface
     public function buildFile($content = '');
 
     /**
-     * @param  FileInterface $file
+     * @param  FileInterface $target
      * @return LinkInterface
      */
     public function buildFileLink(FileInterface $target);
