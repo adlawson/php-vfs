@@ -49,7 +49,6 @@ interface HandleInterface
     public function open();
 
     /**
-     * @param  string        $origin
      * @param  string        $target
      * @return NodeInterface
      */
